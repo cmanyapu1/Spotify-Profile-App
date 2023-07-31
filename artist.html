@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>{{artist.name}}</title>
+        <script src="src/script.ts" type="module"></script>
+    </head>
+    <body>
+        <h1>{{artist.name}</h1>
+
+        <section>Artist Bio
+        <li>{{artistbio.Artist_Name}} <span id="artistname"></span></li>
+        <li>{{artistbio.Images}} <span id="imgUrl"></span></li>
+        <li>Total Followers: {{artistbio.Total_Followers}} <span id="followers"></span></li>
+        <li>{{artistbio.Genres}}<span id="genres"></span></li>
+        <li>{{artistbio.Artist_Popularity}}<span id="artistpopularity"></span></li>
+
+    </section>
+
+        <section>Artist Top Tracks
+            <h2> US Top Tracks</h2>
+            {% for track in artistTracksUS %} 
+            <li>{{track.US_Track_Name}} <span></span></li>
+            <li>{{track.US_Track_Popularity}} <span></span></li>
+            <li>{{track.US_Track_Album}}<span></span></li>
+            {% endfor %}
+
+            <h2> Brazil Top Tracks</h2>
+            {% for track in artistTracksBr %} 
+            <li>{{track.BR_Track_Name}} <span></span></li>
+            <li>{{track.BR_Track_Popularity}} <span></span></li>
+            <li>{{track.BR_Track_Album}}<span></span></li>
+            {% endfor %}
+
+            <h2> India Top Tracks</h2>
+            {% for track in artistTracksIN %} 
+            <li>{{track.In_Track_Name}} <span></span></li>
+            <li>{{track.In_Track_Popularity}} <span></span></li>
+            <li>{{track.In_Track_Album}}<span></span></li>
+            {% endfor %}
+        </section>
+
+        <section>Artist Albums
+            <h2> Artist albums</h2>
+            {% for album in Albums %} 
+            <li>{{album.Album_Name}} <span></span></li>
+            <li>{{album.Album_Images}} <span></span></li>
+            <li>{{album.Release_Date}}<span></span></li>
+            <li>{{album.Popularity}}<span></span></li>
+            <li>{{album.Album_Artists}}<span></span></li>
+            {% endfor %}
+
+
+        </section>
+
+
+    </body>
+</html>
+
