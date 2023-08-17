@@ -16,7 +16,7 @@ def homepage():
 @app.route("/search")
 def showresults():
 
-    q = request.args.get["searchbar"]
+    q = request.args.get("searchbar")
 
     search = Search(q)
     search_results = search.show()

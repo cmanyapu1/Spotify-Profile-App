@@ -12,10 +12,13 @@ class Profile():
     
     def convert(self):
 
-        country = self.user["country"]
-        display_name = self.user["display_name"]
-        email = self.user["email"]
-        image = self.user["images"][0]["url"]
+        country = self.user.get("country")
+        display_name = self.user.get("display_name")
+        email = self.user.get("email")
+        if self.user.get("images"):
+            image = self.user["images"][0]["url"]
+        else:
+            image = None
 
         return {"country": country, "display_name": display_name, "email": email, "image": image}
 
@@ -29,7 +32,7 @@ class Search():
 
         searchresult = sp.search(q=self.search, limit=3, type='artist', market='US')
 
-        list = searchresult["artist"]["items"]
+        list = searchresult["artists"]["items"]
         results = []
         for item in list:
             name = item["name"]
