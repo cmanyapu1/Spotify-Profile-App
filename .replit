@@ -7,7 +7,7 @@ entrypoint = "app.py"
 hidden = ["venv", ".config", "**/__pycache__", "**/.mypy_cache", "**/*.pyc"]
 
 onBoot = "pip install -r requirements.txt"
-run = "flask --debug -p 5900 run"
+
 
 # Specifies which nix channel to use when building the environment.
 [nix]
@@ -107,7 +107,8 @@ pattern = "**/*.py"
 start = "pylsp"
 
 [deployment]
-run = ["sh", "-c", "python3 main.py"]
+# run = ["sh", "-c", "python3 main.py"]
+run = "flask run --debug --host 0.0.0.0 --port 5900"
 
 [[ports]]
 localPort = 5900
