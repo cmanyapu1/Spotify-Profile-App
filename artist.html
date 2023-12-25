@@ -23,6 +23,7 @@
             <li>{{track.US_Track_Name}} <span></span></li>
             <li>{{track.US_Track_Popularity}} <span></span></li>
             <li>{{track.US_Track_Album}}<span></span></li>
+            <li>{{track.US_Track_Release_Date}}<span></span></li>
             {% endfor %}
 
             <h2> Brazil Top Tracks</h2>
@@ -30,6 +31,7 @@
             <li>{{track.BR_Track_Name}} <span></span></li>
             <li>{{track.BR_Track_Popularity}} <span></span></li>
             <li>{{track.BR_Track_Album}}<span></span></li>
+            <li>{{track.BR_Track_Release_Date}}<span></span></li>
             {% endfor %}
 
             <h2> India Top Tracks</h2>
@@ -37,6 +39,7 @@
             <li>{{track.In_Track_Name}} <span></span></li>
             <li>{{track.In_Track_Popularity}} <span></span></li>
             <li>{{track.In_Track_Album}}<span></span></li>
+            <li>{{track.In_Track_Release_Date}}<span></span></li>
             {% endfor %}
         </section>
 
@@ -53,7 +56,9 @@
 
         </section>
 
-
+        <section>Lyrics Generator
+            <h2> Sample Lyric: {{Lyrics}}</h2>
+            <button> New Lyric </button>
+        </section>
     </body>
 </html>
-

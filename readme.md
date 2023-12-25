@@ -32,3 +32,6 @@ App ->
     Users fetch profile info
     Users search artist (all predefined stats are pulled up)
     Users 
+
+
+To Do - 1. Generate New Lyrics Button

@@ -1,8 +1,12 @@
 import httpx
 import spotipy
+import requests
 from spotipy.oauth2 import SpotifyOAuth
 
 sp = spotipy.Spotify(auth_manager=SpotifyOAuth(client_id="1091360323a84859aa2403664ddb294d",client_secret="bda783d8cb7c47bf9e44ba1c850f2a7a",redirect_uri="http://localhost:5173",scope="user-library-read"))
+
+
+
 
 class Profile():
 
@@ -63,7 +67,7 @@ class Artist():
 
     def artistTracksUS(self):
 
-        artist_tracks_US = sp. artist_top_tracks(self.artist_id, country='US')
+        artist_tracks_US = sp.artist_top_tracks(self.artist_id, country='US')
 
         list = artist_tracks_US["tracks"]
         results = []
@@ -73,12 +77,14 @@ class Artist():
             markets = artist_tracks_US['available_markets']
             name = artist_tracks_US['name']
             popularity = artist_tracks_US['popularity']
+            release_date = artist_tracks_US['release_date']
 
             trackresults = {
             "US_Track_Album" : album,
             "US_Available_Markets" : markets,
             "US_Track_Name" : name,
-            "US_Track_Popularity" : popularity
+            "US_Track_Popularity" : popularity,
+            "US_Track_Release_Date" : release_date
             }
 
 
@@ -98,12 +104,14 @@ class Artist():
             markets = artist_tracks_Br['available_markets']
             name = artist_tracks_Br['name']
             popularity = artist_tracks_Br['popularity']
+            release_date = artist_tracks_Br['release_date']
 
             trackresults = {
             "BR_Track_Album" : album,
             "BR_Available_Markets" : markets,
             "BR_Track_Name" : name,
-            "BR_Track_Popularity" : popularity
+            "BR_Track_Popularity" : popularity,
+            "BR_Track_Release_Date" : release_date
             }
 
 
@@ -123,12 +131,16 @@ class Artist():
             markets = artist_tracks_IN['available_markets']
             name = artist_tracks_IN['name']
             popularity = artist_tracks_IN['popularity']
+            release_date = artist_tracks_IN['release_date']
+
 
             trackresults = {
             "In_Track_Album" : album,
             "In_Track_Available_Markets" : markets,
             "In_Track_Name" : name,
-            "In_Track_Popularity" : popularity
+            "In_Track_Popularity" : popularity,
+            "In_Track_Release_Date" : release_date
+
             }
 
 
@@ -162,5 +174,43 @@ class Artist():
 
         return results
 
+    def Lyrics(self):
+
+        artist_response = sp.artist(id = self.artist_id)
+
+        Artist_Name_1 = artist_response['name'],
+
+        # Replace 'YOUR_API_KEY' with your actual OpenAI API key
+        Openai_api_key = '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'
+
+        # Specify the API endpoint
+        Openai_api_url = 'https://api.openai.com/v1/chat/completions'
+
+        # Set up the headers with the API key
+        headers = {
+        'Authorization': f'Bearer {Openai_api_key}',
+        'Content-Type': 'application/json',
+        }
+        
+        # Define the data for your API request  
+        data = {
+            'model': 'gpt-3.5-turbo',
+            'messages': [
+                {'role': 'system', 'content': 'You are a helpful assistant.'},
+                {'role': 'user', 'content': f'Give me a {Artist_Name_1} lyric (nothing else in the response and do not reply).'},  # Modify the user message
+            ],
+        }
+
+        # Send a POST request to the OpenAI API
+        lyric_response = requests.post(Openai_api_url, json=data, headers=headers)
+        
+        lyric_result = lyric_response.json()
+
+        generated_lyric = lyric_result['choices'][0]['message']['content']
+        return generated_lyric
+
+
+
        
-#Items: , images, name, release_date, popularity, artists
+    
+

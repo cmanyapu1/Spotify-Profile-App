@@ -33,5 +33,6 @@ def display_results(artist_id):
     artistTracksBr = artist_details.artistTracksBr()
     artistTracksIN = artist_details.artistTracksIN()
     Albums = artist_details.Albums()
+    Lyrics = artist_details.Lyrics()
 
-    return render_template("artist.html", artistbio=artistbio, artistTracksUS=artistTracksUS, artistTracksBr=artistTracksBr, artistTracksIN=artistTracksIN, Albums=Albums)
+    return render_template("artist.html", artistbio=artistbio, artistTracksUS=artistTracksUS, artistTracksBr=artistTracksBr, artistTracksIN=artistTracksIN, Albums=Albums, Lyrics=Lyrics)
