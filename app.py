@@ -13,7 +13,7 @@ def homepage():
 
     return render_template("index.html", **profile_contents)
 
-@app.route("/search")
+@app.route("/search", methods=['GET', 'POST'])
 def showresults():
 
     q = request.args.get["searchbar"]

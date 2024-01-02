@@ -3,6 +3,7 @@ const $giflist = $("#results_list");
 const url = 'http://127.0.0.1:5000/'
 
 $("#search_form").on("submit", async function(e) {
+    console.log("HEEEEEY");
 
     e.preventDefault();
  
