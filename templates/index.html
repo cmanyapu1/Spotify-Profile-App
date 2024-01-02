@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>My Spotify Profile</title>
+        <link href="styles.css" rel="stylesheet">
+    </head>
+    <body>
+        <h1>My Spotify Profile</h1>
+
+<section id="profile">
+<h2>Logged in as <span id="displayName"></span></h2>
+<img src="{{image}}" alt="Profile Image" style="width: 200px; height: 200px;">
+<p>Name: {{display_name}} <span id="id"></span></p>
+</section>
+<h2>Search your favorite Spotify artist!</p>
+<section id="search">
+    <form id="search_form">
+            <div>
+                <input 
+                name="searchbar" class="searchbar" autofocus
+                id = "searchbar"
+                type= text>
+        </div>
+        <button type="submit"> Submit</button>
+    </form>
+
+    <p id="selectArtist" style="display: none;"> Select Artist</p>
+</section>
+<div id="results_list"> {{search_results}}</div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Get a reference to the search button and the selectArtist element
+        var searchForm = document.querySelector('#search_form');
+        var selectArtist = document.querySelector('#selectArtist');
+
+        // Add a click event listener to the search button
+        searchForm.addEventListener('submit', function (event) {
+            // Prevent the default form submission behavior
+            event.preventDefault();
+            // Show the selectArtist element
+            selectArtist.style.display = 'block';
+        });
+    });
+</script>
+
+
+    </body>
+</html>
+

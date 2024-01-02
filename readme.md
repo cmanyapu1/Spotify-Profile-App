@@ -35,3 +35,14 @@ App ->
 
 
 To Do - 1. Generate New Lyrics Button
+
+
+flask --app app run
+flask --app app --debug run   
+
+Questions
+1. how to link CSS
+2. WHy isn't search q populating
+3. How to get artist_id from click
+4. Generate New lyrics button
+5. How to print self

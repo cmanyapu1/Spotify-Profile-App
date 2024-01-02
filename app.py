@@ -21,7 +21,7 @@ def showresults():
     search = Search(q)
     search_results = search.show()
 
-    return jsonify(search_results)
+    return render_template("index.html", search_results=search_results)
 
 @app.route("/results/<artist_id>", methods=['GET', 'POST'])
 def display_results(artist_id):

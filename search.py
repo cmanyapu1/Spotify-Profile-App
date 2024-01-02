@@ -16,12 +16,13 @@ class Profile():
     
     def convert(self):
 
-        country = self.user["country"]
+        print(self)
+        # country = self.user["country"]
         display_name = self.user["display_name"]
-        email = self.user["email"]
+        # email = self.user["email"]
         image = self.user["images"][0]["url"]
 
-        return {"country": country, "display_name": display_name, "email": email, "image": image}
+        return {"display_name": display_name, "image": image}
 
 class Search():
 
