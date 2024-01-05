@@ -7,11 +7,11 @@ $("#search_form").on("submit", async function (e) {
 
   e.preventDefault();
   try {
-    const response = await axios.get(`/search?q=${$searchbar}`);
+    const response = await axios.get(`/search?searchbar=${$searchbar.val()}`);
+    console.log(response);
   } catch (error) {
     console.log(error);
   }
-
   Appendhtml(response.data);
 });
 

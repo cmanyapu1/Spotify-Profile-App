@@ -16,11 +16,10 @@ def homepage():
 @app.route("/search", methods=['GET', 'POST'])
 def showresults():
 
-    q = request.args.get["searchbar"]
+    q = request.args.get("searchbar")
 
     search = Search(q)
-    search_results = search.show()
-
+    search_results = search.show()    
     return render_template("index.html", search_results=search_results)
 
 @app.route("/results/<artist_id>", methods=['GET', 'POST'])

@@ -34,13 +34,13 @@ class Search():
 
         searchresult = sp.search(q=self.search, limit=3, type='artist', market='US')
 
-        list = searchresult["artist"]["items"]
+        list = searchresult["artists"]["items"]
         results = []
         for item in list:
             name = item["name"]
             id = item["id"]
 
-            results.append((name, id))
+            results.append({"name": name, "id": id})
         
         return results
        ## What's the best way to store the ID data
