@@ -13,16 +13,19 @@ def homepage():
 
     return render_template("index.html", **profile_contents)
 
-@app.route("/search", methods=['GET', 'POST'])
+@app.route("/search", methods=['GET'])
 def showresults():
 
     q = request.args.get("searchbar")
+    if q:
+        search = Search(q)
+        search_results = search.show()
+        return jsonify(search_results)
 
-    search = Search(q)
-    search_results = search.show()    
+  
     return render_template("index.html", search_results=search_results)
 
-@app.route("/results/<artist_id>", methods=['GET', 'POST'])
+@app.route("/results/<artist_id>", methods=['GET'])
 def display_results(artist_id):
 
     artist_details = Artist(artist_id)

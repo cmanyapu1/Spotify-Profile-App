@@ -54,7 +54,7 @@ class Artist():
         
     def artistbio(self):
     
-        artist_bio_response = sp.artist(id = self.artist_id)
+        artist_bio_response = sp.artist(artist_id = self.artist_id)
 
         results_dict = { 
             "Total_Followers" : artist_bio_response['followers']['total'],
@@ -74,18 +74,18 @@ class Artist():
         results = []
 
         for track in list:
-            album = artist_tracks_US['album']
-            markets = artist_tracks_US['available_markets']
-            name = artist_tracks_US['name']
-            popularity = artist_tracks_US['popularity']
-            release_date = artist_tracks_US['release_date']
+            # album = track['album']
+            # # markets = track['available_markets']
+            # name = track['name']
+            # popularity = track['popularity']
+            # release_date = track['release_date']
 
             trackresults = {
-            "US_Track_Album" : album,
-            "US_Available_Markets" : markets,
-            "US_Track_Name" : name,
-            "US_Track_Popularity" : popularity,
-            "US_Track_Release_Date" : release_date
+            "US_Track_Album" : track.get('album'),
+            # "US_Available_Markets" : markets,
+            "US_Track_Name" : track.get('name'),
+            "US_Track_Popularity" : track.get('popularity'),
+            "US_Track_Release_Date" : track.get('release_date')
             }
 
 
@@ -101,18 +101,18 @@ class Artist():
         results = []
 
         for track in list:
-            album = artist_tracks_Br['album']
-            markets = artist_tracks_Br['available_markets']
-            name = artist_tracks_Br['name']
-            popularity = artist_tracks_Br['popularity']
-            release_date = artist_tracks_Br['release_date']
+            # album = track['album']
+            # # markets = track['available_markets']
+            # name = track['name']
+            # popularity = track['popularity']
+            # release_date = track['release_date']
 
             trackresults = {
-            "BR_Track_Album" : album,
-            "BR_Available_Markets" : markets,
-            "BR_Track_Name" : name,
-            "BR_Track_Popularity" : popularity,
-            "BR_Track_Release_Date" : release_date
+            "BR_Track_Album" : track.get('album'),
+            # "BR_Available_Markets" : markets,
+            "BR_Track_Name" : track.get('name'),
+            "BR_Track_Popularity" : track.get('popularity'),
+            "BR_Track_Release_Date" : track.get('release_date')
             }
 
 
@@ -128,19 +128,19 @@ class Artist():
         results = []
 
         for track in list:
-            album = artist_tracks_IN['album']
-            markets = artist_tracks_IN['available_markets']
-            name = artist_tracks_IN['name']
-            popularity = artist_tracks_IN['popularity']
-            release_date = artist_tracks_IN['release_date']
+            # album = track['album']
+            # # markets = track['available_markets']
+            # name = track['name']
+            # popularity = track['popularity']
+            # release_date = track['release_date']
 
 
             trackresults = {
-            "In_Track_Album" : album,
-            "In_Track_Available_Markets" : markets,
-            "In_Track_Name" : name,
-            "In_Track_Popularity" : popularity,
-            "In_Track_Release_Date" : release_date
+            "In_Track_Album" : track.get('album'),
+            # "In_Track_Available_Markets" : markets,
+            "In_Track_Name" : track.get('name'),
+            "In_Track_Popularity" : track.get('popularity'),
+            "In_Track_Release_Date" : track.get('release_date')
 
             }
 
@@ -157,18 +157,18 @@ class Artist():
         list = artistalbums["items"]
         results = []
         for item in list:
-            name = item["name"]
-            images = item["images"]
-            release_date = item["release_date"]
-            popularity = item["popularity"]
-            artists = item ["artists"]
+            # name = item["name"]
+            # images = item["images"]
+            # release_date = item["release_date"]
+            # # popularity = item["popularity"]
+            # artists = item ["artists"]
 
             albumresults = {
-            "Album_Name" : name,
-            "Album_Images" : images,
-            "Album_Release_Date" : release_date,
-            "Album_Popularity" : popularity,
-            "Album_Artists" : artists
+            "Album_Name" : item.get('name'),
+            "Album_Images" : item.get('images'),
+            "Album_Release_Date" : item.get('release_date'),
+            # "Album_Popularity" : popularity,
+            "Album_Artists" : item.get('artists')
         }
 
             results.append((albumresults))
@@ -177,7 +177,7 @@ class Artist():
 
     def Lyrics(self):
 
-        artist_response = sp.artist(id = self.artist_id)
+        artist_response = sp.artist(artist_id = self.artist_id)
 
         Artist_Name_1 = artist_response['name'],
 

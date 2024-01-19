@@ -1,4 +1,18 @@
 body {
     background-color: black;
     color: white; /* Set text color to white for better contrast */
+    font-family: 'WithMyWoes';
+    text-align: center;
+}
+
+h1 {
+    font-family: 'WithMyWoes'; /* Use the font for headings */
+}
+
+
+@font-face {
+    font-family: 'WithMyWoes'; /* Replace with the desired font name */
+    src: url('/static/fonts/WithMyWoes.ttf') format('truetype');
+    font-weight: normal; /* You can specify the font weight */
+    font-style: normal; /* You can specify the font style (e.g., italic) */
 }

@@ -46,3 +46,6 @@ Questions
 3. How to get artist_id from click
 4. Generate New lyrics button
 5. How to print self
+
+
+Change CSS of results

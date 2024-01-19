@@ -9,10 +9,12 @@ $("#search_form").on("submit", async function (e) {
   try {
     const response = await axios.get(`/search?searchbar=${$searchbar.val()}`);
     console.log(response);
+    Appendhtml(response.data);
+    
   } catch (error) {
     console.log(error);
   }
-  Appendhtml(response.data);
+
 });
 
 function Appendhtml(dataresponse) {
@@ -30,4 +32,4 @@ async function GetArtistDetails(evt) {
   await axios.get(`/results/${targetartist}`);
 }
 
-$(".artistchosen").on("click", ".artistchosen", GetArtistDetails);
+$("#results_list").on("click", GetArtistDetails);
