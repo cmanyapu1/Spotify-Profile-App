@@ -48,4 +48,6 @@ Questions
 5. How to print self
 
 
-Change CSS of results
+Change CSS of Artist Page -> General CSS
+Google Gemini Docs for Lyrics generator
+Log Into other accounts

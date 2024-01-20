@@ -29,11 +29,13 @@
             type="text"
           />
         </div>
+        <br>
         <button type="submit">Submit</button>
       </form>
 
-      <p id="selectArtist" style="display: none">Select Artist</p>
     </section>
+    <section>   
+     <p id="selectArtist" style="display: none">Select Artist</p>
 
     <ul id="results_list">
         {% for item in search_results %}
@@ -41,26 +43,15 @@
     {% endfor %}
 
     </ul>
+</section>
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.3/axios.min.js" integrity="sha512-JWQFV6OCC2o2x8x46YrEeFEQtzoNV++r9im8O8stv91YwHNykzIS2TbvAlFdeH0GVlpnyd79W0ZGmffcRi++Bw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="/static/javascript/search.js"></script>
 
-    <!-- <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        // Get a reference to the search button and the selectArtist element
-        var searchForm = document.querySelector('#search_form');
-        var selectArtist = document.querySelector('#selectArtist');
+    <script>
 
-        // Add a click event listener to the search button
-        searchForm.addEventListener('submit', function (event) {
-            // Prevent the default form submission behavior
-            event.preventDefault();
-            // Show the selectArtist element
-            selectArtist.style.display = 'block';
-        });
-    });
-</script> -->
+</script>
   </body>
 </html>

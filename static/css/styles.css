@@ -1,12 +1,24 @@
 body {
     background-color: black;
     color: white; /* Set text color to white for better contrast */
-    font-family: 'WithMyWoes';
     text-align: center;
+}
+
+#profile {
+    font-family: 'WithMyWoes';
+}
+
+#search {
+    font-family: 'WithMyWoes';
 }
 
 h1 {
     font-family: 'WithMyWoes'; /* Use the font for headings */
+}
+
+#selectArtist {
+    text-align: center;
+
 }
 
 

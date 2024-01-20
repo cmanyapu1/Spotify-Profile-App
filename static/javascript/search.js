@@ -29,7 +29,25 @@ async function GetArtistDetails(evt) {
   const toggleclick = $(evt.target);
   const targetartist = toggleclick.closest("li").attr("data-artist-id");
 
-  await axios.get(`/results/${targetartist}`);
+  window.location.href = `/results/${targetartist}`;
+  // const result = await axios.get(`/results/${targetartist}`);
+
+  // console.log(result);
+  // toggleclick.after(result.data);
 }
 
 $("#results_list").on("click", GetArtistDetails);
+
+document.addEventListener('DOMContentLoaded', function () {
+  // Get a reference to the search button and the selectArtist element
+  var searchForm = document.querySelector('#search_form');
+  var selectArtist = document.querySelector('#selectArtist');
+
+  // Add a click event listener to the search button
+  searchForm.addEventListener('submit', function (event) {
+      // Prevent the default form submission behavior
+      event.preventDefault();
+      // Show the selectArtist element
+      selectArtist.style.display = 'block';
+  });
+});
