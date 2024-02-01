@@ -26,28 +26,17 @@ Users can search an artist and retrieve stats:
             a. Total Count
             b. Most popular features
 
-Users can make a request to ChatGPT - generate song lyric from artist
-
-App ->
-    Users fetch profile info
-    Users search artist (all predefined stats are pulled up)
-    Users 
 
 
-To Do - 1. Generate New Lyrics Button
 
 
 flask --app app run
 flask --app app --debug run   
 
-Questions
-1. how to link CSS
-2. WHy isn't search q populating
-3. How to get artist_id from click
-4. Generate New lyrics button
-5. How to print self
 
 
-Change CSS of Artist Page -> General CSS
-Google Gemini Docs for Lyrics generator
-Log Into other accounts
+
+
+Fix Get new lyric button
+Hide API key
+

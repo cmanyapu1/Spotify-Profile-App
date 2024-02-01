@@ -3,8 +3,6 @@ const $giflist = $("#results_list");
 const url = "http://127.0.0.1:5000/";
 
 $("#search_form").on("submit", async function (e) {
-  console.log("HEEEEEY");
-
   e.preventDefault();
   try {
     const response = await axios.get(`/search?searchbar=${$searchbar.val()}`);
@@ -18,6 +16,7 @@ $("#search_form").on("submit", async function (e) {
 });
 
 function Appendhtml(dataresponse) {
+  $("#results_list").empty();
   for (let y = 0; y < dataresponse.length; y++) {
     $("#results_list").append(
       `<li class="artistchosen" data-artist-id=${dataresponse[y].id}> ${dataresponse[y].name} </li>
@@ -51,3 +50,14 @@ document.addEventListener('DOMContentLoaded', function () {
       selectArtist.style.display = 'block';
   });
 });
+
+async function GetLyric (evt) {
+  const toggleclick = $(evt.target);
+  const artistSelected = document.querySelector('#selectArtist').value;
+  var samplelyric = document.querySelector('#SampleLyric');
+  const response = await axios.get(`/find_me_a_lyric=${artistSelected}`, );
+  $('#lyrics-from-openai').html(response.data);
+  samplelyric.style.display = 'none';
+}
+$('#OpenAILyric').on('click', GetLyric);
+

@@ -138,11 +138,11 @@ class Artist():
 
 
             trackresults = {
-            "In_Track_Album" : track.get('album'),
+            "IN_Track_Album" : track.get('album'),
             # "In_Track_Available_Markets" : markets,
-            "In_Track_Name" : track.get('name'),
-            "In_Track_Popularity" : track.get('popularity'),
-            "In_Track_Release_Date" : track.get('release_date')
+            "IN_Track_Name" : track.get('name'),
+            "IN_Track_Popularity" : track.get('popularity'),
+            "IN_Track_Release_Date" : track.get('release_date')
 
             }
 
@@ -177,40 +177,40 @@ class Artist():
 
         return results
 
-    # def Lyrics(self):
+    def Lyrics(self):
 
-    #     artist_response = sp.artist(artist_id = self.artist_id)
+        artist_response = sp.artist(artist_id = self.artist_id)
 
-    #     Artist_Name_1 = artist_response['name'],
+        Artist_Name_1 = artist_response['name'],
 
-    #     # Replace 'YOUR_API_KEY' with your actual OpenAI API key
-    #     Openai_api_key = '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'
+        # Replace 'YOUR_API_KEY' with your actual OpenAI API key
+        Openai_api_key = 'OPEN_AI_APIKey'
 
-    #     # Specify the API endpoint
-    #     Openai_api_url = 'https://api.openai.com/v1/chat/completions'
+        # Specify the API endpoint
+        Openai_api_url = 'https://api.openai.com/v1/chat/completions'
 
-    #     # Set up the headers with the API key
-    #     headers = {
-    #     'Authorization': f'Bearer {Openai_api_key}',
-    #     'Content-Type': 'application/json',
-    #     }
+        # Set up the headers with the API key
+        headers = {
+        'Authorization': f'Bearer {Openai_api_key}',
+        'Content-Type': 'application/json',
+        }
         
-    #     # Define the data for your API request  
-    #     data = {
-    #         'model': 'gpt-3.5-turbo',
-    #         'messages': [
-    #             {'role': 'system', 'content': 'You are a helpful assistant.'},
-    #             {'role': 'user', 'content': f'Give me a {Artist_Name_1} lyric (nothing else in the response and do not reply).'},  # Modify the user message
-    #         ],
-    #     }
+        # Define the data for your API request  
+        data = {
+            'model': 'gpt-3.5-turbo',
+            'messages': [
+                {'role': 'system', 'content': 'You are a helpful assistant.'},
+                {'role': 'user', 'content': f'Give me a {Artist_Name_1} lyric (nothing else in the response and do not reply).'},  # Modify the user message
+            ],
+        }
 
-    #     # Send a POST request to the OpenAI API
-    #     lyric_response = requests.post(Openai_api_url, json=data, headers=headers)
+        # Send a POST request to the OpenAI API
+        lyric_response = requests.post(Openai_api_url, json=data, headers=headers)
         
-    #     lyric_result = lyric_response.json()
+        lyric_result = lyric_response.json()
 
-    #     generated_lyric = lyric_result['choices'][0]['message']['content']
-    #     return generated_lyric
+        generated_lyric = lyric_result['choices'][0]['message']['content']
+        return generated_lyric
 
 
 

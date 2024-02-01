@@ -1,3 +1,10 @@
+.btn {
+    font-family: Arial;
+}
+
+.searchbar {
+    font-family: Arial;
+}
 body {
     background-color: black;
     color: white; /* Set text color to white for better contrast */
@@ -18,8 +25,35 @@ h1 {
 
 #selectArtist {
     text-align: center;
+    font-weight: bold;
 
 }
+
+.container {
+    text-align: center; /* Right-align the content within the container */
+    width: 50%;
+}
+
+ul {
+    list-style: none; /* Remove default list styles */
+    padding: 0; /* Remove default padding */
+        /* float: center; Float the list to the right */
+    /* position: absolute; Set the positioning to absolute */
+    /* left: 740px; Adjust the horizontal position in pixels */
+    /* top: 450px; Adjust the vertical position in pixels */
+
+}
+
+ul li {
+    border: 1px solid white; /* You can customize the border style here */
+    padding: 5px; /* Optional: Add padding for spacing inside the border */
+    /* width: 150%; Adjust the width as needed */
+    text-align: center;
+    color: rgb(65, 177, 225);
+    
+}
+
+
 
 
 @font-face {

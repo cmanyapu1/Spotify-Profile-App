@@ -3,69 +3,136 @@
         <head>
             <meta charset="utf-8">
             <title>{{artistbio.Artist_Name}}</title>
-            <!doctype html>
             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
             <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-            <!-- <script src="src/script.ts" type="module"></script> -->
+            <link href="/static/css/styles2.css" rel="stylesheet" />
         </head>
         <body>
+            <br>
             <button  type="button" class="btn btn-success" onclick='history.back();' > Back </button>
             <button  type="button" class="btn btn-success" onclick='window.location.href = `/`;' > Search again </button>
-        <h1>{{artistbio.Artist_Name}}</h1>
+            <br>
+<br>
+        <h1 id="selectArtist">{{artistbio.Artist_Name}}</h1>
 
-        <section>Artist Bio
-        <li>{{artistbio.Artist_Name}} <span id="artistname"></span></li>
-        <img src="{{artistbio.Images[0]['url']}}"></img>
-        <li>Total Followers: {{artistbio.Total_Followers}} <span id="followers"></span></li>
-        <li>{{artistbio.Genres}}<span id="genres"></span></li>
-        <li>{{artistbio.Artist_Popularity}}<span id="artistpopularity"></span></li>
+        <section>
+        <img src="{{artistbio.Images[0]['url']}}" style="width: 200px; height: 200px"></img>
+        <h2>Total Followers: {{artistbio.Total_Followers}}</h2>
+        <li>Total Spotify Popularity Score: {{artistbio.Artist_Popularity}}<span id="artistpopularity"></span></li>
 
     </section>
-
-        <section>Artist Top Tracks
-            <h2> US Top Tracks</h2>
+<br>
+<br>
+        <section>
+            <h3> US Top Tracks 🇺🇸</h3>
+            <div id="USTopTracks" class="carousel carousel-dark slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
             {% for track in artistTracksUS %} 
-            <li>{{track.US_Track_Name}} <span></span></li>
-            <li>{{track.US_Track_Popularity}} <span></span></li>
-            <img src="{{track.US_Track_Album['images'][0]['url']}}"></img>
-            <li>{{track.US_Track_Release_Date}}<span></span></li>
+            <div class="carousel-item {% if loop.first %}active{% endif %}">
+                <img src="{{track.US_Track_Album['images'][0]['url']}}">
+                <br>
+                <div>
+                        <h5>{{ loop.index }}: {{track.US_Track_Name}} </h5>
+                        <p>Popularity Score {{track.US_Track_Popularity}}</p>
+            <!-- <li class="list-group-item">{{track.US_Track_Release_Date}}<span></span></li> -->
+        </div>
+    </div>
             {% endfor %}
-
-            <h2> Brazil Top Tracks</h2>
-            {% for track in artistTracksBr %} 
-            <li>{{track.BR_Track_Name}} <span></span></li>
-            <li>{{track.BR_Track_Popularity}} <span></span></li>
-            <img src="{{track.BR_Track_Album['images'][0]['url']}}"></img>
-            <li>{{track.BR_Track_Release_Date}}<span></span></li>
+            <button id="USPrev" class="carousel-control-prev" type="button" data-bs-target="#USTopTracks" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="false"></span>
+                <span>Previous</span>
+            </button>
+            <button id="USNext" class="carousel-control-next" type="button" data-bs-target="#USTopTracks" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="false"></span>
+                <span>Next</span>
+            </button>
+        </div>
+        <br>
+            <h3> Brazil Top Tracks 🇧🇷</h3>
+            <div id="BRTopTracks" class="carousel carousel-dark slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    {% for track in artistTracksBr %} 
+                    <div class="carousel-item {% if loop.first %}active{% endif %}">
+                        <img src="{{track.BR_Track_Album['images'][0]['url']}}"></img>
+                        <br>
+                <div>
+                        <h5>{{ loop.index }}: {{track.BR_Track_Name}} </h5>
+                        <p>Popularity Score: {{track.BR_Track_Popularity}}</p>
+        </div>
+    </div>
             {% endfor %}
-
-            <h2> India Top Tracks</h2>
+            <button id="BRPrev" class="carousel-control-prev" type="button" data-bs-target="#BRTopTracks" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="false"></span>
+                <span>Previous</span>
+            </button>
+            <button id="BRNext" class="carousel-control-next" type="button" data-bs-target="#BRTopTracks" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="false"></span>
+                <span>Next</span>
+            </button>
+        </div>
+        <br>
+            <h3> India Top Tracks🇮🇳</h3>
+            <div id="INTopTracks" class="carousel carousel-dark slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
             {% for track in artistTracksIN %} 
-            <li>{{track.In_Track_Name}} <span></span></li>
-            <li>{{track.In_Track_Popularity}} <span></span></li>
-            <img src="{{track.In_Track_Album['images'][0]['url']}}"></img>
-            <li>{{track.In_Track_Release_Date}}<span></span></li>
+            <div class="carousel-item {% if loop.first %}active{% endif %}">
+                <img src="{{track.IN_Track_Album['images'][0]['url']}}"></img>
+<br>
+<div>
+            <h5>{{ loop.index }}: {{track.IN_Track_Name}} </h5>
+            <p>Popularity Score: {{track.IN_Track_Popularity}}</p>
+                    </div>
+    </div>
             {% endfor %}
+            <button id="INPrev" class="carousel-control-prev" type="button" data-bs-target="#INTopTracks" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="false"></span>
+                <span>Previous</span>
+            </button>
+            <button id="INNext" class="carousel-control-next" type="button" data-bs-target="#INTopTracks" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="false"></span>
+                <span>Next</span>
+            </button>
+        </div>
         </section>
-
-        <section>Artist Albums
+<br>
+<br>
+        <section>
             <h2> Artist albums</h2>
+            <div id="Albums" class="carousel carousel-dark slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
             {% for album in Albums %} 
-            <li>{{album.Album_Name}} <span></span></li>
-            <!-- <li>{{album.Album_Images}} <span></span></li> -->
-            <li>{{album.Release_Date}}<span></span></li>
-            <li>{{album.Popularity}}<span></span></li>
-                {% for artist in album.Album_Artists%}
-                    <li>{{artist['name']}}<span></span></li>
-                {% endfor %}
+            <div class="carousel-item {% if loop.first %}active{% endif %}">
+                  <img src="{{album.Album_Images[0]['url']}}"></img> 
+
+<br>
+<div>
+            <h5>{{album.Album_Name}} </h5>
+            <p>Release Date: {{album.Album_Release_Date}}</p>
+            {% for artist in album.Album_Artists%}
+            <p>{{artist['name']}}</p>
+        {% endfor %}
+                    </div>
+    </div>
             {% endfor %}
-
-
+            <button id="AlbPrev" class="carousel-control-prev" type="button" data-bs-target="#Albums" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="false"></span>
+                <span>Previous</span>
+            </button>
+            <button id="AlbNext" class="carousel-control-next" type="button" data-bs-target="#Albums" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="false"></span>
+                <span>Next</span>
+            </button>
+        </div>
         </section>
+<br>
 
-        <!-- <section>Lyrics Generator
-            <h2> Sample Lyric: {{Lyrics}}</h2>
-            <button> New Lyric </button>
-        </section> -->
+
+         </section> 
+
+         <section>Lyrics Generator
+            <h2 id="SampleLyric"> {{Lyrics}}</h2>
+            <button id="OpenAILyric"> Get New Lyric </button>
+            <div id="lyrics-from-openai"> {{newLyric}}</div>
+        </section> 
     </body>
 </html>
